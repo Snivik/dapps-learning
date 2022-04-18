@@ -4,15 +4,18 @@
 
 import { GalaxyWarContract } from "./GalaxyWar";
 import { MigrationsContract } from "./Migrations";
+import { SmartWalletContract } from "./SmartWallet";
 
 declare global {
   namespace Truffle {
     interface Artifacts {
       require(name: "GalaxyWar"): GalaxyWarContract;
       require(name: "Migrations"): MigrationsContract;
+      require(name: "SmartWallet"): SmartWalletContract;
     }
   }
 }
 
 export { GalaxyWarContract, GalaxyWarInstance } from "./GalaxyWar";
 export { MigrationsContract, MigrationsInstance } from "./Migrations";
+export { SmartWalletContract, SmartWalletInstance } from "./SmartWallet";

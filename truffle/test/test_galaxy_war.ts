@@ -1,5 +1,3 @@
-import { AssertionError } from "chai";
-
 const GalaxyWar = artifacts.require("GalaxyWar");
 
 contract("GalaxyWar", async accounts => {

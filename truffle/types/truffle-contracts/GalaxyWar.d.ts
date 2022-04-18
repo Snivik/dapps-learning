@@ -12,25 +12,28 @@ export interface GalaxyWarContract extends Truffle.Contract<GalaxyWarInstance> {
 type AllEvents = never;
 
 export interface GalaxyWarInstance extends Truffle.ContractInstance {
-  updateOwnership: {
-    (newOwner: string, txDetails?: Truffle.TransactionDetails): Promise<
-      Truffle.TransactionResponse<AllEvents>
-    >;
+  _unitPrice(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+  updateUnitPrice: {
+    (
+      newPrice: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
-      newOwner: string,
+      newPrice: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
-      newOwner: string,
+      newPrice: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
-      newOwner: string,
+      newPrice: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
 
-  withdrawBalanceToOwner: {
+  sendBalanceTo: {
     (to: string, txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
     >;
@@ -148,25 +151,28 @@ export interface GalaxyWarInstance extends Truffle.ContractInstance {
   };
 
   methods: {
-    updateOwnership: {
-      (newOwner: string, txDetails?: Truffle.TransactionDetails): Promise<
-        Truffle.TransactionResponse<AllEvents>
-      >;
+    _unitPrice(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+    updateUnitPrice: {
+      (
+        newPrice: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
-        newOwner: string,
+        newPrice: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
-        newOwner: string,
+        newPrice: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
-        newOwner: string,
+        newPrice: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
 
-    withdrawBalanceToOwner: {
+    sendBalanceTo: {
       (to: string, txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
       >;
