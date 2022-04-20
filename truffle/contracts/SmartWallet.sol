@@ -1,6 +1,12 @@
+// SPDX-License-Identifier: Unlicensed
 pragma solidity ^0.8;
 
+/**
+    This is a course project of a wallet, where user can set up allowances
+    for other addresses, so these addresses can withdraw certain allowances.
 
+    This contract is paired with a relatively simple test suite.
+ */
 contract SmartWallet {
 
     struct Account {
@@ -40,7 +46,7 @@ contract SmartWallet {
         uint256 a = accounts[from].allowance[msg.sender];
         return (
             a,
-            accounts[from].balance % a
+            a <= accounts[from].balance ? a : accounts[from].balance
         );
     }
 
@@ -59,6 +65,7 @@ contract SmartWallet {
      */
     function withdrawFrom(address from, uint256 amount) public {  
         require(accounts[from].balance >= amount, 'You are trying to withdraw more than user has');
+        
         if (from != msg.sender){
             require(accounts[from].allowance[msg.sender] >= amount, 'You cannot exceed your allowance');
             accounts[from].allowance[msg.sender] -= amount;

@@ -2,7 +2,16 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 
-// Token-like contract thar
+/**
+    WARNING: This is not a complete project. This is not even a partially complete project.
+    It's a playground I've started to see what's where, what's Truffle, Ganache and etc.
+    It never had a client, never was intended to be properly tested or completed
+    So for the love of development, don't copy anything or inherit from this contract.
+
+    I've left it for a sole purpose of reflecting on my progress after I went through a course
+    to compare what I could do without a course and what I can do after I completed one.
+
+ */
 contract GalaxyWar {
 
     address private _ownerAddress;

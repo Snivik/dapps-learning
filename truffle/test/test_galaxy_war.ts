@@ -1,5 +1,9 @@
 const GalaxyWar = artifacts.require("GalaxyWar");
 
+/**
+ * Sample test suite for the GalaxyWar.sol. Read notes on the contract to get
+ * a context
+ */
 contract("GalaxyWar", async accounts => {
 
     it("User shoud be able to mint a planet", async () => {
@@ -19,7 +23,7 @@ contract("GalaxyWar", async accounts => {
         const instance = await GalaxyWar.deployed();
 
         instance.mint(0, {from: accounts[0], value: web3.utils.toWei('0.1', 'ether')}).then(()=>{
-            assert.fail("<ehtid should've failed");
+            assert.fail("Mint should've failed should've failed");
         }).catch(()=>{
             // All good
         });
