@@ -2,20 +2,26 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import { CampaignContract } from "./Campaign";
 import { GalaxyWarContract } from "./GalaxyWar";
 import { MigrationsContract } from "./Migrations";
+import { OwnableContract } from "./Ownable";
 import { SmartWalletContract } from "./SmartWallet";
 
 declare global {
   namespace Truffle {
     interface Artifacts {
+      require(name: "Campaign"): CampaignContract;
       require(name: "GalaxyWar"): GalaxyWarContract;
       require(name: "Migrations"): MigrationsContract;
+      require(name: "Ownable"): OwnableContract;
       require(name: "SmartWallet"): SmartWalletContract;
     }
   }
 }
 
+export { CampaignContract, CampaignInstance } from "./Campaign";
 export { GalaxyWarContract, GalaxyWarInstance } from "./GalaxyWar";
 export { MigrationsContract, MigrationsInstance } from "./Migrations";
+export { OwnableContract, OwnableInstance } from "./Ownable";
 export { SmartWalletContract, SmartWalletInstance } from "./SmartWallet";

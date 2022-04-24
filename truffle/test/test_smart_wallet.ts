@@ -1,6 +1,6 @@
 const SmartWallet = artifacts.require("SmartWallet");
 
-const {toWei} = web3.utils;
+
 
 
 /**
@@ -9,7 +9,8 @@ const {toWei} = web3.utils;
  * simple logic
  */
 contract("SmartWallet", async accounts => {
-
+    const {toWei} = web3.utils;
+    
     it("User should be able to deposit money", async () => {
         const instance = await SmartWallet.deployed();
         await instance.send(toWei('1', 'ether'), {from: accounts[0]});
